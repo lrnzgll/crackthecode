@@ -2,4 +2,6 @@
 
 Rails.application.routes.draw do
   root 'home#welcome'
+
+  resources :games
 end
