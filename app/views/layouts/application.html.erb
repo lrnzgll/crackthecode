@@ -11,7 +11,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class='bg-background bg-cover h-screen'>
     <%= yield %>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
   </body>
 </html>

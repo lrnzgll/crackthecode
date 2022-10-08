@@ -3,5 +3,7 @@
 Rails.application.routes.draw do
   root 'home#welcome'
 
-  resources :games
+  resources :games, only: [:show, :new, :create] do
+    resources :attempts, only: [:create]
+  end
 end
