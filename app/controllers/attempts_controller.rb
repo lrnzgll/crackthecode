@@ -9,7 +9,7 @@ class AttemptsController < ApplicationController
 
       on.failure do
         flash[:error] = 'Something went wrong!'
-        redirect_to root_path
+        redirect_to game_path(attempt_params[:game_id])
       end
     end
   end

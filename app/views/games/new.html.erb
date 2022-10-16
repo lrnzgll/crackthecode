@@ -1,10 +1,18 @@
-<h1>New Game</h1>
+<div class='h-screen flex items-center justify-center'>
+  <div class='p-10 rounded-lg bg-white shadow-xl bg-sky-50'>
+    <%= link_to 'Back', root_path %>
 
-<p>Choose your secret number (5 digits)</p>
+    <h1>New Game</h1>
 
-<%= form_with model: Game.new, url: games_path do |f| %>
-  <%= f.label :number %>
-  <%= f.number_field :number %>
+    <p>Choose your secret number (5 digits)</p>
 
-  <%= f.submit %>
-<% end %>
+    <div class='pt-5'>
+      <%= form_with model: Game.new, url: games_path do |f| %>
+        <%= f.label :number %>
+        <%= f.number_field :number %>
+
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -9,12 +9,14 @@ class GamesController < ApplicationController
   def new; end
 
   def create
-    @game = Game.new(create_params)
+    CreateGame.new.call do |on|
+      on.success do |game|
+        redirect_to game_path(game)
+      end
 
-    if @game.save
-      redirect_to game_path(@game)
-    else
-      flash[:error] = "Big Error"
+      on.failure do
+        flash[:error] = "Big Error"
+      end
     end
   end
 

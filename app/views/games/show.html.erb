@@ -1,14 +1,18 @@
-<h2>Game <%= @game.id %></h2>
+<div class='h-screen flex items-center justify-center'>
+  <div class='p-10 rounded-lg bg-white shadow-xl bg-sky-50'>
+    <h2>Game <%= @game.id %></h2>
 
-<%= form_with model: Attempt.new, url: game_attempts_path(@game) do |f| %>
-  <%= f.label :number %>
-  <%= f.number_field :number %>
+    <%= form_with model: Attempt.new, url: game_attempts_path(@game) do |f| %>
+      <%= f.label :number %>
+      <%= f.number_field :number %>
 
-  <%= f.submit %>
-<% end %>
+      <%= f.submit %>
+    <% end %>
 
-<% @attempts.each do |attempt| %>
-  <div>
-    <%= attempt.number %> <%= AttemptResult.call(attempt:) %>
+    <% @attempts.each do |attempt| %>
+      <div>
+        <%= attempt.number %> <%= AttemptResult.call(attempt:) %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
