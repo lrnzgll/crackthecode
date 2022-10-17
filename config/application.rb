@@ -31,7 +31,9 @@ module Cowbulls
     # config.time_zone = "Central Time (US & Canada)"
     config.eager_load_paths << Rails.root.join("services", "step_adapters")
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      g.system_tests = nil
+      g.test_framework :rspec
+    end
   end
 end

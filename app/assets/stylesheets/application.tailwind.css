@@ -11,6 +11,15 @@ p,
 a {
   font-family: 'DynaPuff', cursive;
 }
+
+a:hover {
+  color: rgb(14 165 233);
+}
+
+a:active {
+  color: rgb(2 132 199);
+}
+
 /*
 
 @layer components {
