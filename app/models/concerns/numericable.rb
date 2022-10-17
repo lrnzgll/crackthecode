@@ -5,10 +5,10 @@ module Numericable
 
   NUMBERS = %w[0 1 2 3 4 5 6 7 8 9].freeze
   PATTERN_SIZE = 5
-  POSSIBLE_PATTERNS = NUMBERS.permutation(PATTERN_SIZE).map(&:join)
+  POSSIBLE_PATTERNS = NUMBERS.permutation(PATTERN_SIZE).map { |n| n.join.to_i }
 
   included do
-    validates :number, presence: true, numericality: { only_integer: true }
+    validates :number, presence: true, numericality: { only_integer: true }, inclusion: { in: POSSIBLE_PATTERNS }
     validates :number, comparison: { greater_than: 0, less_than_or_equal_to: 99_999 }
   end
 
