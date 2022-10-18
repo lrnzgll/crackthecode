@@ -2,6 +2,6 @@
 
 <%= form_with model: Attempt.new, url: game_attempts_path(@game) do |f| %>
 
-  <%= f.text_field :number %>
+  <%= f.text_field :number, autofocus: true %>
   <%= f.submit "New Attempt", class: 'w-100 my-2 p-3 bg-green-300 hover:bg-green-400 active:bg-green-500 text-center font-bold' %>
 <% end %>
