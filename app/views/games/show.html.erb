@@ -2,19 +2,9 @@
 
 <div class='container my-20 mx-auto'>
   <%= render(CardComponent.new) do %>
-    <h2 class='text-xl pt-2 pb-5'>Game</h2>
+    <%= render partial: 'attempt_form' unless @game.ended? %>
+    <%= render partial: 'attempts' unless @game.ended? %>
 
-    <%= form_with model: Attempt.new, url: game_attempts_path(@game) do |f| %>
-
-      <%= f.text_field :number %>
-      <%= f.submit "New Attempt", class: 'w-100 my-2 p-3 bg-green-300 hover:bg-green-400 active:bg-green-500 text-center font-bold' %>
-    <% end %>
-
-    <% @attempts.each do |attempt| %>
-      <%= render(AttemptComponent.new(
-        number: attempt.number,
-        result: AttemptResult.call(attempt:)
-      )) %>
-  <% end %>
+    <%= render partial: 'ended' if @game.ended? %>
 <% end %>
 </div>

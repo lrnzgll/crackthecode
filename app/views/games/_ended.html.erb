@@ -1,0 +1,11 @@
+<h2 class='text-xl pt-2 pb-5'>Game Ended!</h2>
+
+<p>The number <span class='text-xl'><%= @game.number%></span> cracked the code!</p>
+
+<div class='mt-5 flex flex-row-reverse'>
+  <div class='py-3'>
+    <%= form_with model: Game.new, url: games_path do |f| %>
+      <%= f.submit "Create new Game", class: 'my-2 p-3 bg-green-300 hover:bg-green-400 active:bg-green-500 font-bold'%>
+    <% end %>
+  </div>
+</div>
