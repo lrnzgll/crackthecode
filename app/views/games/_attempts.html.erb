@@ -1,6 +1,0 @@
-<% @attempts.each do |attempt| %>
-  <%= render(AttemptComponent.new(
-    number: attempt.number,
-    result: AttemptResult.call(attempt:)
-  )) %>
-<% end %>

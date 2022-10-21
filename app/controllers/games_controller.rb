@@ -3,7 +3,8 @@
 class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
-    @attempts = @game.attempts.load
+    @attempts = Attempt.where(game: @game)
+    @attempt = @game.attempts.new
   end
 
   def new; end

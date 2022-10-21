@@ -1,10 +1,16 @@
 <%= render(NavbarComponent.new) %>
 
-<div class='container my-20 mx-auto'>
+<div class='w-full mx-10 my-20'>
   <%= render(CardComponent.new) do %>
+    <h2 class='text-xl pt-2 pb-5'>Game</h2>
     <%= render partial: 'attempt_form' unless @game.ended? %>
-    <%= render partial: 'attempts' unless @game.ended? %>
+    <% unless @game.ended? %>
+      <%= turbo_stream_from "attempts" %>
+      <%= turbo_frame_tag "attempts" do %>
+        <%= render @attempts %>
+      <% end %>
+    <% end %>
 
     <%= render partial: 'ended' if @game.ended? %>
-<% end %>
+  <% end %>
 </div>

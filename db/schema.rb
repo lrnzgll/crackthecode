@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_154742) do
   enable_extension "plpgsql"
 
   create_table "attempts", force: :cascade do |t|
-    t.integer "number", null: false
+    t.string "number", null: false
     t.bigint "game_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_154742) do
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "number", null: false
+    t.string "number", null: false
   end
 
   add_foreign_key "attempts", "games"
