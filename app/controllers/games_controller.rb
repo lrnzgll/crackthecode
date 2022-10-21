@@ -12,7 +12,7 @@ class GamesController < ApplicationController
   def create
     CreateGame.new.call do |on|
       on.success do |game|
-        redirect_to game_path(game)
+        redirect_to game_path(game), status: 303
       end
 
       on.failure do
