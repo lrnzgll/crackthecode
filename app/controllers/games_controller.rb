@@ -15,8 +15,8 @@ class GamesController < ApplicationController
         redirect_to game_path(game), status: 303
       end
 
-      on.failure do
-        flash[:error] = "Big Error"
+      on.failure do |game|
+        flash[:error] = "#{game.inspect}, #{game.errors}"
       end
     end
   end
